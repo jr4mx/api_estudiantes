@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
+const cors =require('cors');
 const PORT = 3000;
 
 // Aquí debemos importara las rutas que definamos
 const estudiantesRoutes = require('./routes/estudiantesRoutes.js');
 const testRoutes = require('./routes/testRoutes');  // Ruta de prueba
+app.use(cors());
 app.use(express.json());
+
 
 
 app.use('/prueba', (req,res) => {

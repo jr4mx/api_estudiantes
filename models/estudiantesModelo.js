@@ -28,8 +28,9 @@ exports.getStudentsByStatus = (estatus, callback) => {
 
 // Agregar un nuevo estudiante
 exports.addStudent = (studentData, callback) => {
-  const query = 'INSERT INTO estudiantes (numero_cta, nombre_estudiante, grado, estatus) VALUES (?, ?, ?, ?)';
-  db.query(query, [studentData.numero_cta, studentData.nombre_estudiante, studentData.grado, studentData.estatus], callback);
+  const query = 'INSERT INTO estudiantes (numero_cta, nombre_estudiante, grado, descripcion, estatus) VALUES (?, ?, ?, ?, ?)';
+  db.query(query, [studentData.numero_cta, studentData.nombre_estudiante, studentData.grado, studentData.descripcion,studentData.estatus], callback);
+
 };
 
 // Modificar un estudiante existente
@@ -41,7 +42,7 @@ exports.updateStudent = (id, studentData, callback) => {
 
 // Eliminar un estudiante
 exports.deleteStudent = (id, callback) => {
-  const query = 'DELETE FROM estudiantes WHERE numero_cta = ?';
+  const query = 'DELETE FROM estudiantes WHERE id= ?';
   db.query(query, [id], callback);
 };
 
